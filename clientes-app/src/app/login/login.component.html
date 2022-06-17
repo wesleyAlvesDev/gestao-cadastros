@@ -1,0 +1,58 @@
+<div class="bg-primary">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5">
+                        <div class="card shadow-lg border-0 rounded-lg mt-5">
+                            <div class="card-header">
+                                <h3 class="text-center font-wheight-light my-4">
+                                    {{cadastrando ? 'Cadastro de Novo Usuário' : 'Entrar'}}
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-success" *ngIf="mensagemSucesso">
+                                    {{mensagemSucesso}}
+                                </div>
+
+                                <div class="alert alert-danger" *ngFor="let erro of errors">
+                                    {{ erro }}
+                                </div>
+
+                                <form [formGroup]="loginForm">
+                                    <div class="form-group">
+                                        <label for="login" class="small mb-1">Login</label>
+                                        <input type="text" name="username" formControlName="username"
+                                            class="form-control py-4" placeholder="Digite seu login" autocomplete="off">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="senha" class="small mb-1">Senha</label>
+                                        <input type="password" name="password" formControlName="password"
+                                            class="form-control py-4" placeholder="Digite sua senha">
+                                    </div>
+
+                                    <div class="form-group d-flex justify-content-center mt-4">
+                                        <button type="button" class="btn btn-primary" (click)="login()"
+                                            *ngIf="!cadastrando">Enviar</button>
+                                        <button type="button" class="btn btn-success" (click)="cadastro()"
+                                            *ngIf="cadastrando">Cadastrar</button>
+                                        <button type="button" class="btn btn-danger ml-1" (click)="cancelaCadastrar()"
+                                            *ngIf="cadastrando">Cancelar</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-footer text-center">
+                                <div class="small">
+                                    <a href="#" (click)="prepararCadastrar($event)">
+                                        Não possui cadastro? Cadastre-se!
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

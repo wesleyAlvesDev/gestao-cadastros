@@ -1,0 +1,67 @@
+<div class="container">
+    <h1 class="mt-4">Clientes</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">{{clienteForm.get('id').value ? "Edição" : "Cadastro"}}</li>
+    </ol>
+
+    <form [formGroup]="clienteForm">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="success">
+                    Cliente salvo/atualizado com sucesso!
+                </div>
+                <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
+                    {{erro}}
+                </div>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="clienteForm.get('id').value != null && clienteForm.get('id').value != '' ">
+            <div class="col-md-6">
+                <div class="for-group">
+                    <label for="id">ID:</label>
+                    <input type="text" class="form-control" formControlName="id" name="id" disabled />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="for-group">
+                    <label for="id">Data Cadastro:</label>
+                    <input type="text" class="form-control" formControlName="dataCadastro" name="dataCadastro"
+                        disabled />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="for-group">
+                    <label for="id">Nome: <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" formControlName="nome" name="nome" uppercase maxlength="90"/>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="for-group">
+                    <label for="id">CPF: <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" formControlName="cpf" name="nome" mask="000.000.000-00" (ngModelChange)="isExistsCpf($event)"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" style="margin-top: 10px; display: flex; justify-content: center;">
+                <button type="button" class="btn btn-success ml-1" (click)="salvar()" *ngIf="!clienteForm.get('id').value" [disabled]="btnSalvar">
+                    <i class="fa fa-save"></i> Salvar
+                </button>
+                <button type="button" class="btn btn-success ml-1" (click)="salvar()" *ngIf="clienteForm.get('id').value" >
+                    <i class="fa fa-sync-alt"></i> Atualizar
+                </button>
+                <button type="button" class="btn btn-primary ml-1" (click)="limparFormulario()">
+                    <i class="fa fa-save"></i> Limpar
+                </button>
+                <button type="button" class="btn btn-secondary ml-1" (click)="voltarParaListagem()">
+                    <i class="fa fa-arrow-alt-circle-left"></i> Voltar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
