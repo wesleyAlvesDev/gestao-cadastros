@@ -5,8 +5,7 @@ Cadastro de clientes e serviços prestados, que faz uso das seguintes tecnologia
   - Spring Framework
   - PostgreSQL
   - Angular 9
-
-Aplicação baseada no curso: [Angular 9 + Spring Boot 2.2: Fullstack Completo e Atualizado](https://www.udemy.com/course/full-stack-angular9-spring-boot/)
+  - OAuth2 + Token JWT
 
 # Pré requisitos 
 
