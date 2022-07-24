@@ -2,10 +2,12 @@
 Cadastro de clientes e serviços prestados, que faz uso das seguintes tecnologias:
 
   - Java
-  - Spring Framework
+  - Spring Boot
+  - Sring Security
+  - OAuth2 + Token JWT
   - PostgreSQL
   - Angular 9
-  - OAuth2 + Token JWT
+  
 
 # Pré requisitos 
 
